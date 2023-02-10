@@ -18,5 +18,9 @@ function getComputerChoice() {
 
 // Define function that plays a single round of Rock Paper Scissors
 function oneRound(playerSelection, computerSelection) {
+
+    // Make player's selection case-insensitive
+    playerSelection = playerSelection.toLowerCase();
+
     return "Default string!"
 }
