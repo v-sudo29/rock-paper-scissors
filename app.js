@@ -15,3 +15,8 @@ function getComputerChoice() {
     }
     return choice;
 }
+
+// Define function that plays a single round of Rock Paper Scissors
+function oneRound(playerSelection, computerSelection) {
+    return "Default string!"
+}
