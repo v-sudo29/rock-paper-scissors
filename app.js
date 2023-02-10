@@ -75,8 +75,10 @@ function game() {
         } else if (text.includes('lose') == true) {
             console.log(`Round ${i}: Computer wins!`);
             computerPoints++;
-        } else {
+        } else if (text.includes('Tie') == true) {
             console.log(`Round ${i}: Tie!`);
+        } else {
+            console.log(`Round ${i}: Inconclusive!`);
         }
     }
 
