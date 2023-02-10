@@ -1,5 +1,4 @@
 # rock-paper-scissors
-## About Me
 This is a simulation for 5 rounds of the game 'Rock, Paper, Scissors'.
 
 ## View Project
