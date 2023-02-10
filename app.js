@@ -56,8 +56,41 @@ function oneRound(playerSelection, computerSelection) {
     return 'Something went wrong!'
 }
 
-// Simulate one round of rock paper scissors
-let playerSelection = "rock";
-let computerSelection = getComputerChoice();
+// Define game function to play 5 rounds
+function game() {
 
-console.log(oneRound(playerSelection, computerSelection));
+    // Keep track of player and computer points
+    let playerPoints = 0;
+    let computerPoints = 0;
+
+    // Call oneRound function 5 times and keep score
+    for (let i = 1; i <= 5; i++) {
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt('Choose Rock, Paper, or Scissors?');
+        let text = oneRound(playerSelection, computerSelection);
+
+        if (text.includes('win') == true) {
+            console.log(`Round ${i}: Player wins!`);
+            playerPoints++;
+        } else if (text.includes('lose') == true) {
+            console.log(`Round ${i}: Computer wins!`);
+            computerPoints++;
+        } else {
+            console.log(`Round ${i}: Tie!`);
+        }
+    }
+
+    console.log(`Player: ${playerPoints}`);
+    console.log(`Computer: ${computerPoints}`);
+
+    // Declare the winner
+    if (playerPoints > computerPoints) {
+        return 'Player wins!'
+    } else if (playerPoints < computerPoints) {
+        return 'Computer wins!'
+    } else {
+        return 'Tie!'
+    }
+}
+
+console.log(game());
