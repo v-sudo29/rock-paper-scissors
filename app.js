@@ -22,5 +22,36 @@ function oneRound(playerSelection, computerSelection) {
     // Make player's selection case-insensitive
     playerSelection = playerSelection.toLowerCase();
 
-    return "Default string!"
+    // Declare rules for what choice beats which choice
+    if (playerSelection == 'rock') {
+        if (computerSelection == 'scissors'){
+            return 'You win! Rock beats Scissors';
+        } else if (computerSelection == 'paper'){
+            return 'You lose! Paper beats Rock';
+        } else {
+            return 'Tie!'
+        }
+    }
+
+    if (playerSelection == 'paper') {
+        if (computerSelection == 'rock'){
+            return 'You win! Paper beats Rock';
+        } else if (computerSelection == 'scissors'){
+            return 'You lose! Scissors beats Paper';
+        } else {
+            return 'Tie!'
+        }
+    } 
+
+    if (playerSelection == 'scissors') {
+        if (computerSelection == 'paper'){
+            return 'You win! Scissors beats Paper';
+        } else if (computerSelection == 'rock'){
+            return 'You lose! Rock beats Scissors';
+        } else {
+            return 'Tie!'
+        }
+    }
+
+    return 'Default string!'
 }
