@@ -7,11 +7,11 @@ function getComputerChoice() {
 
     // Assign a number to each choice
     if (randomNumber == 1) {
-        choice = 'Rock';
+        choice = 'rock';
     } else if (randomNumber == 2) {
-        choice = 'Paper';
+        choice = 'paper';
     } else if (randomNumber == 3) {
-        choice = 'Scissors';
+        choice = 'scissors';
     }
     return choice;
 }
@@ -53,5 +53,11 @@ function oneRound(playerSelection, computerSelection) {
         }
     }
 
-    return 'Default string!'
+    return 'Something went wrong!'
 }
+
+// Simulate one round of rock paper scissors
+let playerSelection = "rock";
+let computerSelection = getComputerChoice();
+
+console.log(oneRound(playerSelection, computerSelection));
