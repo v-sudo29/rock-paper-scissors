@@ -66,7 +66,7 @@ function game() {
     // Call oneRound function 5 times and keep score
     for (let i = 1; i <= 5; i++) {
         let computerSelection = getComputerChoice();
-        let playerSelection = prompt('Choose Rock, Paper, or Scissors?');
+        let playerSelection = prompt('Choose Rock, Paper, or Scissors?', '');
         let text = oneRound(playerSelection, computerSelection);
 
         if (text.includes('win') == true) {
