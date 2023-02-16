@@ -56,43 +56,56 @@ function oneRound(playerSelection, computerSelection) {
     return 'Something went wrong!'
 }
 
-// Define game function to play 5 rounds
-function game() {
+// Buttons
+const buttons = document.querySelectorAll('button');
+const divResult = document.querySelector('.result');
+const pScore = document.querySelector('.playerScore');
+const cScore = document.querySelector('.compScore');
+const controller = new AbortController;
+let btns = document.getElementById('btns');
+let clone = btns.cloneNode(true);
 
-    // Keep track of player and computer points
-    let playerPoints = 0;
-    let computerPoints = 0;
+// Display total points
+let playerPoints = 0;
+let computerPoints = 0;
 
-    // Call oneRound function 5 times and keep score
-    for (let i = 1; i <= 5; i++) {
-        let computerSelection = getComputerChoice();
-        let playerSelection = prompt('Choose Rock, Paper, or Scissors?', '');
-        let text = oneRound(playerSelection, computerSelection);
+
+// Use .forEach to iterate through each button
+buttons.forEach((button) => {
+
+    // Define play function for button
+    let play = () => {
+
+        // Play one round of Rock Paper Scissors
+        let text = oneRound(button.id, getComputerChoice());
+        divResult.textContent = text;
 
         if (text.includes('win') == true) {
-            console.log(`Round ${i}: Player wins!`);
             playerPoints++;
+            console.log(playerPoints);
         } else if (text.includes('lose') == true) {
-            console.log(`Round ${i}: Computer wins!`);
             computerPoints++;
-        } else if (text.includes('Tie') == true) {
-            console.log(`Round ${i}: Tie!`);
-        } else {
-            console.log(`Round ${i}: Inconclusive!`);
         }
-    }
 
-    console.log(`Player: ${playerPoints}`);
-    console.log(`Computer: ${computerPoints}`);
+        if (playerPoints == 5) {
+            divResult.textContent = 'Player is the WINNER!';
+        } else if (computerPoints == 5) {
+            divResult.textContent = 'Computer is the WINNER!';    
+        }
 
-    // Declare the winner
-    if (playerPoints > computerPoints) {
-        return 'Player wins!'
-    } else if (playerPoints < computerPoints) {
-        return 'Computer wins!'
-    } else {
-        return 'Tie!'
-    }
-}
+        // Update score
+        pScore.textContent = `Player: ${playerPoints}`;
+        cScore.textContent = `Computer: ${computerPoints}`;
 
-console.log(game());
+        // To removeEventListener
+        if (playerPoints == 5) {
+            divResult.textContent = 'Player is the WINNER!';
+            btns.replaceWith(clone);
+        } else if (computerPoints == 5) {
+            divResult.textContent = 'Computer is the WINNER!'; 
+            btns.replaceWith(clone);
+        }
+    };
+
+    button.addEventListener('click', play);
+});
