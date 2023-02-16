@@ -61,7 +61,6 @@ const buttons = document.querySelectorAll('button');
 const divResult = document.querySelector('.result');
 const pScore = document.querySelector('.playerScore');
 const cScore = document.querySelector('.compScore');
-const controller = new AbortController;
 let btns = document.getElementById('btns');
 let clone = btns.cloneNode(true);
 
